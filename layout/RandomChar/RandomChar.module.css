@@ -1,0 +1,187 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    grid-template-areas:
+        "img heroname"
+        "img descr"
+        "img buttons";
+    gap: 0 30px;
+    padding: 40px;
+}
+
+.heroname {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 26px;
+    color: var(--black);
+    grid-area: heroname;
+}
+
+.descr {
+    grid-area: descr;
+
+}
+
+.buttons {
+    grid-area: buttons;
+    align-self: end;
+}
+
+
+.wikibutton {
+    margin-left: 30px;
+}
+
+
+.trycard {
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.trytext {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: var(--white);
+    z-index: 1;
+}
+
+
+.bottomtext {
+    margin-top: 40px;
+}
+
+
+.trybutton {
+    margin-top: 23px;
+    z-index: 1;
+}
+
+.trybutton::after {
+    border-left: 6px solid var(--grey-dark) !important;
+    border-top: 6px solid var(--grey-dark) !important;
+}
+
+.trybutton::before {
+    border-right: 6px solid var(--grey-dark) !important;
+    border-bottom: 6px solid var(--grey-dark) !important;
+
+}
+
+.hummerImage {
+    position: absolute;
+    bottom: 15px;
+    right: -40px;
+    z-index: 0;
+}
+
+
+.img {
+    grid-area: img;
+    width: 180px;
+    height: 180px;
+}
+
+
+
+@media (max-width: 1085px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        grid-template-areas:
+            "heroname"
+            "img"
+            "descr"
+            "buttons"
+    }
+
+    .buttons {
+        display: flex;
+        justify-self: normal;
+        justify-content: space-around;
+    }
+
+    .wikibutton {
+        margin: 0;
+    }
+
+    .descr {
+        margin-top: 20px;
+    }
+
+    .trycard {
+        display: grid;
+    }
+
+    .trybutton {
+        margin: 0;
+        align-self: end
+    }
+
+
+
+    .bottomtext {
+        margin: 0;
+    }
+
+
+}
+
+@media (max-width: 768px) {
+
+    .wrapper {
+        grid-template-columns: 1fr;
+
+        grid-template-areas:
+            "trycard"
+            "hero"
+
+
+    }
+
+    .hero {
+        grid-area: hero;
+    }
+
+    .trycard {
+        grid-area: trycard;
+    }
+
+    .descr {
+        text-align: center;
+    }
+
+    .trybutton {
+        margin-top: 25px;
+
+    }
+
+    .bottomtext {
+        margin-top: 20px;
+    }
+
+
+}
+
+@media (max-width: 375px) {
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .wikibutton {
+        margin-top: 10px;
+    }
+
+    .hummerImage {
+        width: 50%;
+    }
+}

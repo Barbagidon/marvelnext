@@ -1,0 +1,34 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+	color: var(--black);
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+html {
+
+	overflow-y: scroll;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+:root {
+	--black: #000000;
+	--red: #9F0013;
+	--red-hover: #c7152a;
+	--grey: #5C5C5C;
+	--grey-hover: #565353;
+	--grey-dark: #232222;
+	--white: #fff;
+	--green: #03710E;
+	--font-family: 'Roboto Condensed', sans-serif;
+
+}

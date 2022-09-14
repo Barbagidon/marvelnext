@@ -1,0 +1,10 @@
+.pagelink {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: var(--black)
+}
+
+.active {
+    color: var(--red)
+}

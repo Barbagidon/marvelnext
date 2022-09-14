@@ -1,0 +1,32 @@
+.layout {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.main {
+    display: grid;
+    grid-template-areas:
+        "randomchar randomchar"
+        "cardlist sidebar"
+        "cardlist searchform";
+
+    margin-top: 50px;
+
+}
+
+.randomchar {
+    grid-area: randomchar;
+}
+
+.cardlist {
+    grid-area: cardlist;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+.searchform {
+    grid-area: searchform;
+}

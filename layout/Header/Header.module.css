@@ -1,0 +1,30 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.marvel {
+    color: var(--red);
+}
+
+.headertext,
+.marvel {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 33px;
+}
+
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 375px) {
+    .headertext {
+        font-size: 27px;
+    }
+}

@@ -1,0 +1,22 @@
+.h1 {
+    font-weight: 700;
+    line-height: 33px;
+
+}
+
+.h2 {
+    font-weight: 700;
+    line-height: 26px;
+    color: var(--white);
+}
+
+.h3 {
+    font-weight: 700;
+    line-height: 21px;
+}
+
+.h1,
+.h2,
+.h3 {
+    margin: 0;
+}
