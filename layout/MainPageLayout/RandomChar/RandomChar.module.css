@@ -12,7 +12,20 @@
         "img buttons";
     gap: 0 30px;
     padding: 40px;
+    min-height: 268px;
 }
+
+.loading {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "img heroname"
+        "img descr"
+        "img buttons";
+    padding: 40px;
+}
+
+
 
 .heroname {
     font-weight: 700;
@@ -20,6 +33,7 @@
     line-height: 26px;
     color: var(--black);
     grid-area: heroname;
+
 }
 
 .descr {
@@ -91,6 +105,8 @@
 
 
 
+
+
 @media (max-width: 1085px) {
 
     .hero {
@@ -102,6 +118,17 @@
             "descr"
             "buttons"
     }
+
+    .loading {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "heroname"
+            "img"
+            "descr"
+            "buttons";
+    }
+
 
     .buttons {
         display: flex;

@@ -1,7 +1,7 @@
 import { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react";
 
-export interface PageLinkProps
+export interface CardProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-  background?: string;
+  background?: "grey" | "white";
   children: ReactNode;
 }

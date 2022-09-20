@@ -1,0 +1,3 @@
+export const CHANGE_HERO = "CHANGE_HERO";
+export const SET_LOADING = "SET_LOADING";
+export const CHOOSE_CHARACTER = "CHOOSE_CHARACTER";

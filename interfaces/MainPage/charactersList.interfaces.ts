@@ -79,7 +79,7 @@ export interface Data {
   results: Result[];
 }
 
-export interface CharacterInfo {
+export interface ICharactersInfo {
   code: number;
   status: string;
   copyright: string;

@@ -30,16 +30,16 @@
     border: 6px solid transparent;
     border-left: 6px solid white;
     border-top: 6px solid white;
-    left: 0;
-    top: 0;
+    left: -1px;
+    top: -1px;
 }
 
 .button::before {
     border: 6px solid transparent;
     border-right: 6px solid white;
     border-bottom: 6px solid white;
-    right: 0;
-    bottom: 0;
+    right: -1px;
+    bottom: -1px;
 }
 
 .red {
@@ -51,7 +51,7 @@
 }
 
 .grey {
-    background: var(--grey-dark)
+    background: var(--grey)
 }
 
 .grey:hover {

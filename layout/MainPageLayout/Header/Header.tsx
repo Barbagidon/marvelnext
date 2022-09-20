@@ -1,7 +1,7 @@
 import { HeaderProps } from "./Header.props";
 import styles from "./Header.module.css";
-import { Htag } from "../../components/Htag/Htag";
-import { PageLink } from "../../components/PageLink/PageLink";
+import { Htag } from "../../../components/Htag/Htag";
+import { PageLink } from "../../../components/PageLink/PageLink";
 
 export const Header = ({ ...props }: HeaderProps): JSX.Element => {
   return (

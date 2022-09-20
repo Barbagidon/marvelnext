@@ -1,0 +1,10 @@
+.herolist {
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    gap: 30px 25px;
+    margin: 0;
+    padding: 0;
+    margin-top: 50px;
+    list-style: none;
+
+}

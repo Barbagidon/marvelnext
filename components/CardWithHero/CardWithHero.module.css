@@ -1,0 +1,29 @@
+.cardwithhero {
+    width: 200px;
+    height: 318px;
+    cursor: pointer;
+    transition: 0.3s all;
+}
+
+.cardwithhero:hover {
+    box-shadow: 0px 5px 20px #9F0013;
+    transform: translateY(-5px);
+}
+
+.cardbottom {
+    padding: 15px 15px 0;
+}
+
+.heroname {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 26px;
+    text-transform: uppercase;
+    color: var(--white);
+    margin: 0;
+}
+
+.heroImage {
+    width: 200px;
+    height: 200px;
+}

@@ -42,6 +42,17 @@ export const Htag = ({
           {children}
         </h3>
       );
+      case "h4":
+        return (
+          <h4
+            style={{
+              color: color,
+            }}
+            className={cn(styles.h3, className)}
+          >
+            {children}
+          </h4>
+        );
     default:
       return <></>;
   }
