@@ -2,7 +2,6 @@ import axios from "axios";
 import { IAPI } from "../interfaces/MainPage/api.interfaces";
 import { ICharacterInfo } from "../interfaces/MainPage/character.interfaces";
 import {
-  dontHaveInforamtion,
   notFound,
   randomCharErrorMessages,
 } from "../interfaces/MainPage/messagesForNullContent.interfaces";
