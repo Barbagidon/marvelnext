@@ -5,26 +5,36 @@ import { ICharacterInfo } from "../../interfaces/MainPage/character.interfaces";
 import { clearCharacterInfo } from "../../helpers/clearCharacterInfo";
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import { IMainPageProps } from "../../interfaces/MainPage/mainpage.interfaces";
-import {
-  MainPageContext,
-  MainPageContextProvider,
-} from "../../context/mainpage.context";
+import { MainPageContext } from "../../context/mainpage.context";
 import { ICharactersInfo } from "../../interfaces/MainPage/charactersList.interfaces";
 import { clearCharactersInfoForList } from "../../helpers/clearCharactersInfoForList";
 import { ParsedUrlQuery } from "querystring";
 import { pagesCount } from "../../helpers/pagesCount";
 import { amountOfPages } from "../../helpers/amoutOfPages";
-import HeroFromSearch from "../searchhero/[name]";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 export default function MainPage(props: IMainPageProps): JSX.Element {
-  const x = useContext(MainPageContext);
-  console.log(x);
-  return (
-    <MainPageContextProvider {...props}>
-      <MainPageLayout></MainPageLayout>
-    </MainPageContextProvider>
-  );
+  const { setHero, setCharactersInfoForList, setArrWithNumberPages } =
+    useContext(MainPageContext);
+
+  const { characterInfo, charactersInfoForList, arrWithNumberPages } = props;
+
+  useEffect(() => {
+    if (setHero && setCharactersInfoForList && setArrWithNumberPages) {
+      setHero(characterInfo);
+      setCharactersInfoForList(charactersInfoForList);
+      setArrWithNumberPages(arrWithNumberPages);
+    }
+  }, [
+    characterInfo,
+    charactersInfoForList,
+    arrWithNumberPages,
+    setHero,
+    setCharactersInfoForList,
+    setArrWithNumberPages,
+  ]);
+
+  return <MainPageLayout></MainPageLayout>;
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {

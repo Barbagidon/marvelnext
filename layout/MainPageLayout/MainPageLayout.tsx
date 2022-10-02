@@ -1,4 +1,4 @@
-import { LayoutProps } from "./MainPageLayout.props";
+import { MainPageLayoutProps } from "./MainPageLayout.props";
 import styles from "./MainPageLayout.module.css";
 import cn from "classnames";
 import { Header } from "./Header/Header";
@@ -10,7 +10,7 @@ import { SearchForm } from "./SearchForm/SearchForm";
 export const MainPageLayout = ({
   className,
   ...props
-}: LayoutProps): JSX.Element => {
+}: MainPageLayoutProps): JSX.Element => {
   return (
     <div className={cn(className, styles.layout)} {...props}>
       <Header></Header>

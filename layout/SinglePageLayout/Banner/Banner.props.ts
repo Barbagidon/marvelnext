@@ -1,4 +1,4 @@
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 
-export interface MainPageLayoutProps
+export interface HeaderProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}

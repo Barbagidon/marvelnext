@@ -7,3 +7,5 @@ export const dontHaveInforamtion =
   "Sorry we dont have any information about this hero:(";
 
 export const dontHaveComics = "Sorry we dont have any comics with this hero:(";
+
+export const notFound = "notFound";

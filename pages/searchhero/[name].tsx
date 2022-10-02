@@ -1,9 +1,9 @@
-import { useContext } from "react";
-import { MainPageContext } from "../../context/mainpage.context";
+import { SinglePageLayout } from "../../layout/SinglePageLayout/SinglePageLayout";
 
 export default function HeroFromSearch(): JSX.Element {
-  const { characterFromSearch } = useContext(MainPageContext);
-  console.log(characterFromSearch);
-
-  return <h2>{characterFromSearch?.name || "hELLO"}</h2>;
+  return (
+    <>
+      <SinglePageLayout />
+    </>
+  );
 }

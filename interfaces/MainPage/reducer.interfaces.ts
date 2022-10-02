@@ -6,9 +6,12 @@ import {
   SAVE_CHARACTER_URL,
   SET_CHARACTER_FROM_SEARCH,
   SET_LOADING,
+  SET_ARR_WITH_NUMBER_PAGES,
+  CLEAR_CHARACTER_FROM_SEARCH,
 } from "../../reducers/MainPageConst";
 import { IClearCharacterInfo } from "./clearCharacterInfo.interfaces";
 import { IClearCharactersInfoForList } from "./clearCharactersInfoForList";
+import { IMainPageContext } from "./mainPageContext.interfaces";
 import { randomCharErrorMessages } from "./messagesForNullContent.interfaces";
 
 export type IMainPageReducer =
@@ -30,4 +33,12 @@ export type IMainPageReducer =
   | {
       type: typeof SET_CHARACTER_FROM_SEARCH;
       payload: IClearCharacterInfo;
+    }
+  | {
+      type: typeof SET_ARR_WITH_NUMBER_PAGES;
+      payload: IMainPageContext["arrWithNumberPages"];
+    }
+  | {
+      type: typeof CLEAR_CHARACTER_FROM_SEARCH;
+      payload: undefined;
     };

@@ -1,12 +1,14 @@
-import { createContext, PropsWithChildren, useEffect, useReducer } from "react";
+import { createContext, PropsWithChildren, useReducer } from "react";
 import { IMainPageContext } from "../interfaces/MainPage/mainPageContext.interfaces";
 
 import {
   CHANGE_HERO,
   CHOOSE_CHARACTER,
+  CLEAR_CHARACTER_FROM_SEARCH,
   GET_INPUT_VALUE,
   REFRESH_INFO_HERO_LIST,
   SAVE_CHARACTER_URL,
+  SET_ARR_WITH_NUMBER_PAGES,
   SET_CHARACTER_FROM_SEARCH,
   SET_LOADING,
 } from "../reducers/MainPageConst";
@@ -26,21 +28,23 @@ export const MainPageContext = createContext<IMainPageContext>({
 
 export const MainPageContextProvider = ({
   children,
-  characterInfo,
-  charactersInfoForList,
-  arrWithNumberPages,
 }: PropsWithChildren<IMainPageContext>): JSX.Element => {
   const [state, dispatch] = useReducer(MainPageReducer, {
     loading: false,
     setLoading: (set) => {
-      console.log("loading");
       dispatch({ type: SET_LOADING, payload: set });
     },
-    characterInfo,
+    characterInfo: "",
     setHero: (characterInfo) => {
       dispatch({ type: CHANGE_HERO, payload: characterInfo });
     },
-    charactersInfoForList,
+    charactersInfoForList: [],
+    setCharactersInfoForList: (charactersInfoForList) => {
+      dispatch({
+        type: REFRESH_INFO_HERO_LIST,
+        payload: charactersInfoForList,
+      });
+    },
     choosenCharacter: undefined,
     setChoosenCharacter: (choosenCharacter) => {
       dispatch({ type: CHOOSE_CHARACTER, payload: choosenCharacter });
@@ -49,7 +53,14 @@ export const MainPageContextProvider = ({
     setInputValue: (value) => {
       dispatch({ type: GET_INPUT_VALUE, payload: value });
     },
-    arrWithNumberPages,
+    arrWithNumberPages: [],
+    setArrWithNumberPages: (arrWithNumberPages) => {
+      dispatch({
+        type: SET_ARR_WITH_NUMBER_PAGES,
+        payload: arrWithNumberPages,
+      });
+    },
+
     characterUrl: "",
     setCharacterUrl: (url) => {
       dispatch({ type: SAVE_CHARACTER_URL, payload: url });
@@ -58,11 +69,11 @@ export const MainPageContextProvider = ({
     setCharacterFromSearch: (characterInfo) => {
       dispatch({ type: SET_CHARACTER_FROM_SEARCH, payload: characterInfo });
     },
-  });
 
-  useEffect(() => {
-    dispatch({ type: REFRESH_INFO_HERO_LIST, payload: charactersInfoForList });
-  }, [charactersInfoForList]);
+    clearCharacterFromSearch: () => {
+      dispatch({ type: CLEAR_CHARACTER_FROM_SEARCH, payload: undefined });
+    },
+  });
 
   return (
     <MainPageContext.Provider value={state}>

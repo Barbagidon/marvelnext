@@ -1,0 +1,54 @@
+.banner {
+    background-color: var(--grey-dark);
+    min-height: 100px;
+    padding-left: 45px;
+    padding-right: 25px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    position: relative;
+    margin-top: 50px;
+    ;
+}
+
+.bannertext {
+    color: var(--white);
+    font-size: 24px;
+    max-width: 235px;
+    margin-left: 83px;
+    align-self: center;
+    line-height: 28px
+}
+
+@media (max-width: 768px) {
+
+    .banner {
+        padding-left: 25px;
+        grid-template-columns: 1fr auto;
+    }
+
+    .bannertext {
+        margin-top: 10px;
+        margin-left: 0px;
+    }
+
+    .avengers {
+        display: none;
+    }
+
+}
+
+@media (max-width: 425px) {
+
+    .banner {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        padding: 5px;
+    }
+
+    .bannertext {
+        text-align: center;
+    }
+
+
+
+}

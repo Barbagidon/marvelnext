@@ -1,0 +1,50 @@
+.wrapper {
+    display: grid;
+    grid-template-areas: 'heroImage heroTitle'
+        'heroImage heroDescr';
+    grid-template-rows: 30px auto;
+    grid-template-columns: auto 1fr;
+    gap: 0 50px;
+    margin-top: 50px;
+}
+
+.loadingwrapper {
+    display: grid;
+
+    gap: 0 50px;
+    margin-top: 50px;
+}
+
+.heroImage {
+    grid-area: heroImage;
+
+}
+
+.heroTitle {
+    font-size: 22px;
+    grid-area: heroTitle;
+    text-transform: uppercase
+}
+
+.heroDescr {
+    max-width: 550px;
+    font-size: 18px;
+    grid-area: heroDescr;
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        grid-template-areas: 'heroTitle'
+            'heroImage '
+            'heroDescr';
+
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .heroDescr {
+        text-align: center;
+    }
+
+}

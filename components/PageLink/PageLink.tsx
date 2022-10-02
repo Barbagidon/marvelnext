@@ -2,15 +2,11 @@ import { PageLinkProps } from "./PageLink.props";
 import styles from "./PageLink.module.css";
 import cn from "classnames";
 import { MainPageContext } from "../../context/mainpage.context";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import router from "next/router";
 
 export const PageLink = ({ ...props }: PageLinkProps): JSX.Element => {
-  const { characterUrl, setCharacterUrl } = useContext(MainPageContext);
-
-  useEffect(() => {
-    console.log(characterUrl);
-  }, [characterUrl]);
+  const { setCharacterUrl } = useContext(MainPageContext);
 
   return (
     <nav {...props}>

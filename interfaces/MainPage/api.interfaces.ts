@@ -11,6 +11,7 @@ export interface IAPI {
   getUrlForSearchChar: (charName: string | undefined) => string;
   getCharacterFromSearch: (
     hero: string | undefined,
-    setHero: IMainPageContext["setCharacterFromSearch"]
+    setHero: IMainPageContext["setCharacterFromSearch"],
+    setLoading: IMainPageContext["setLoading"]
   ) => Promise<void>;
 }

@@ -9,6 +9,7 @@ import { MainPageContext } from "../../../context/mainpage.context";
 import { API } from "../../../helpers/api";
 
 import Link from "next/link";
+import { notFound } from "../../../interfaces/MainPage/messagesForNullContent.interfaces";
 
 export const SearchForm = ({
   className,
@@ -19,6 +20,7 @@ export const SearchForm = ({
     setInputValue,
     setCharacterFromSearch,
     characterFromSearch,
+    setLoading,
   } = useContext(MainPageContext);
 
   return (
@@ -41,7 +43,11 @@ export const SearchForm = ({
 
         <Button
           onClick={(): Promise<void> =>
-            API.getCharacterFromSearch(inputValue, setCharacterFromSearch)
+            API.getCharacterFromSearch(
+              inputValue,
+              setCharacterFromSearch,
+              setLoading
+            )
           }
           type="button"
           className={styles.button}
@@ -49,10 +55,20 @@ export const SearchForm = ({
         >
           FIND
         </Button>
-
-        <Link href={`/searchhero/rap`}>
-          <Button color="grey">To page</Button>
-        </Link>
+        {characterFromSearch && characterFromSearch != notFound ? (
+          <>
+            <span className={styles.successMsg}>There is! Visit {characterFromSearch.name} page?</span>
+            <Link
+              href={`/searchhero/${characterFromSearch.name || inputValue}`}
+            >
+              <Button className={styles.toPageBtn} color="grey">To page</Button>
+            </Link>
+          </>
+        ) : characterFromSearch === notFound ? (
+          <span className={styles.errormessage}>
+            The character was not found. Check the name and try again
+          </span>
+        ) : null}
       </form>
     </Card>
   );

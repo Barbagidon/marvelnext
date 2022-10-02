@@ -1,7 +1,11 @@
 import axios from "axios";
 import { IAPI } from "../interfaces/MainPage/api.interfaces";
 import { ICharacterInfo } from "../interfaces/MainPage/character.interfaces";
-import { randomCharErrorMessages } from "../interfaces/MainPage/messagesForNullContent.interfaces";
+import {
+  dontHaveInforamtion,
+  notFound,
+  randomCharErrorMessages,
+} from "../interfaces/MainPage/messagesForNullContent.interfaces";
 import { clearCharacterInfo } from "./clearCharacterInfo";
 import { hash, timeStamp } from "./getTimeStampAndHash";
 
@@ -43,14 +47,19 @@ export const API: IAPI = {
       `/characters?name=${name}&apikey=${process.env.NEXT_PUBLIC_KEY}`
     );
   },
-  getCharacterFromSearch: async (hero, setHero) => {
-    if (setHero) {
-      const { data } = await axios.get<ICharacterInfo>(
-        API.getUrlForSearchChar(hero)
-      );
-
-      const x = clearCharacterInfo(data);
-      setHero(x);
+  getCharacterFromSearch: async (hero, setHero, setLoading) => {
+    if (setHero && setLoading) {
+      try {
+        setLoading(true);
+        const { data } = await axios.get<ICharacterInfo>(
+          API.getUrlForSearchChar(hero)
+        );
+        setLoading(false);
+        const clearInfo = clearCharacterInfo(data);
+        setHero(clearInfo);
+      } catch (error) {
+        setHero(notFound);
+      }
     }
   },
 };

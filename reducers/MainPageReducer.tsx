@@ -3,18 +3,18 @@ import { IMainPageReducer } from "../interfaces/MainPage/reducer.interfaces";
 import {
   CHANGE_HERO,
   CHOOSE_CHARACTER,
+  CLEAR_CHARACTER_FROM_SEARCH,
   GET_INPUT_VALUE,
   REFRESH_INFO_HERO_LIST,
+  SET_ARR_WITH_NUMBER_PAGES,
   SET_CHARACTER_FROM_SEARCH,
   SET_LOADING,
 } from "./MainPageConst";
 
 export function MainPageReducer(
   state: IMainPageContext,
-  action: IMainPageReducer
+  { type, payload }: IMainPageReducer
 ): IMainPageContext {
-  const { type, payload } = action;
-
   switch (type) {
     case CHANGE_HERO:
       return {
@@ -46,11 +46,23 @@ export function MainPageReducer(
       };
 
     case SET_CHARACTER_FROM_SEARCH:
-      console.log("search");
       return {
         ...state,
         characterFromSearch: payload,
       };
+
+    case CLEAR_CHARACTER_FROM_SEARCH:
+      return {
+        ...state,
+        characterFromSearch: undefined,
+      };
+
+    case SET_ARR_WITH_NUMBER_PAGES: {
+      return {
+        ...state,
+        arrWithNumberPages: payload,
+      };
+    }
 
     default:
       return state;
