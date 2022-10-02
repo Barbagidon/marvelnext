@@ -13,11 +13,27 @@
     gap: 0 25px;
 }
 
+.skeleton {
+    padding: 25px;
+}
+
+
+
+.herotitle {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 26px;
+    color: var(--black);
+    text-transform: uppercase;
+    min-height: 52px;
+}
+
+
 
 .heroimage {
+    grid-area: heroimage;
     width: 150px;
     height: 150px;
-    grid-area: heroimage;
 }
 
 .herotitle {
@@ -39,6 +55,8 @@
 
 .descr {
     grid-area: descr;
+    margin-bottom: 10px;
+    margin-top: 15px;
 }
 
 .comicslisttitle {
@@ -47,10 +65,65 @@
 
 .comicslist {
     grid-area: comicslist;
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+
+.comicsitem {
     padding: 5px 0px 5px 15px;
     font-weight: 400;
     font-size: 14px;
     line-height: 16px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    list-style: none;
+    margin-top: 10px;
+}
+
+.donthave {
+    display: block;
+    margin-top: 10px;
+}
+
+@media (max-width: 1085px) {
+    .sidebar {
+        display: grid;
+        grid-template-areas:
+            'herotitle herotitle'
+            'heroimage heroimage'
+            'homepagebtn wikibtn'
+            'descr descr'
+            'comicslisttitle comicslisttitle'
+            'comicslist comicslist'
+        ;
+        grid-template-columns: 1fr 1fr;
+        padding: 25px;
+
+    }
+
+    .herotitle,
+    .descr {
+        text-align: center;
+    }
+
+    .heroimage {
+        margin: 0 auto;
+        width: 300px;
+        height: 300px;
+        margin-top: 15px;
+    }
+
+    .homepagebtn {
+        justify-self: end
+    }
+
+
+
+    @media (max-width: 515px) {
+        .heroimage {
+            width: 150px;
+            height: 150px;
+        }
+    }
+
+
 }

@@ -11,12 +11,13 @@ import { MainPageContext } from "../../../context/mainpage.context";
 import { shortString } from "../../../helpers/shortString";
 import { API } from "../../../helpers/api";
 import Preloader from "./preloader.svg";
+import { dontHaveInforamtion } from "../../../interfaces/MainPage/messagesForNullContent.interfaces";
 
 export const RandomChar = ({
   className,
   ...props
 }: RandomCharProps): JSX.Element => {
-  const {characterInfo, loading, setHero, setLoading } =
+  const { characterInfo, loading, setHero, setLoading } =
     useContext(MainPageContext);
 
   return (
@@ -36,7 +37,7 @@ export const RandomChar = ({
             <P className={styles.descr}>
               {characterInfo.description.length > 0
                 ? shortString(characterInfo.description, 0, 228)
-                : "Sorry we dont have any information about this hero:("}
+                : dontHaveInforamtion}
             </P>
             <div className={styles.buttons}>
               <Button color="red">HOMEPAGE</Button>

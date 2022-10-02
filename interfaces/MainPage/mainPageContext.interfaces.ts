@@ -1,15 +1,23 @@
 import { IClearCharacterInfo } from "./clearCharacterInfo.interfaces";
 import { IClearCharactersInfoForList } from "./clearCharactersInfoForList";
-import { randomCharErrorMessages } from "./errorMessages.interfaces";
+import { IMainPageProps } from "./mainpage.interfaces";
+import { randomCharErrorMessages } from "./messagesForNullContent.interfaces";
 
 export interface IMainPageContext {
   loading?: boolean;
+  arrWithNumberPages: number[];
   setLoading?: (set: boolean) => void;
   characterInfo: IClearCharacterInfo | string;
   setHero?: (
     characterInfo: IClearCharacterInfo | randomCharErrorMessages
   ) => void;
   charactersInfoForList: IClearCharactersInfoForList[];
-  chooseCharacter?: IClearCharactersInfoForList;
-  setChooseCharacter?: (chooseCharacter: IClearCharactersInfoForList) => void;
+  choosenCharacter?: IClearCharactersInfoForList;
+  setChoosenCharacter?: (choosenCharacter: IClearCharactersInfoForList) => void;
+  inputValue?: string;
+  setInputValue?: (value: string) => void;
+  characterUrl?: string;
+  setCharacterUrl?: (url: string) => void;
+  characterFromSearch?: IClearCharacterInfo;
+  setCharacterFromSearch?: (characterInfo: IClearCharacterInfo) => void;
 }

@@ -10,6 +10,9 @@
     "stylelint": "stylelint \"**/*.css\" --fix"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@mui/material": "^5.10.6",
     "@types/blueimp-md5": "^2.18.0",
     "@types/md5": "^2.3.2",
     "axios": "^0.27.2",

@@ -1,4 +1,4 @@
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 
-export interface CardListProps
+export interface SkeletonProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}

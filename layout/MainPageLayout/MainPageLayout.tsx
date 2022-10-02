@@ -19,7 +19,7 @@ export const MainPageLayout = ({
         <CardList className={styles.cardlist}></CardList>
         <div className={styles.sidebar}>
           <Sidebar></Sidebar>
-          <SearchForm></SearchForm>
+          <SearchForm className={styles.searchfrom}></SearchForm>
         </div>
       </main>
     </div>

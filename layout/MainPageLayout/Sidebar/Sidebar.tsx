@@ -5,35 +5,73 @@ import { Htag } from "../../../components/Htag/Htag";
 import { P } from "../../../components/P/P";
 import cn from "classnames";
 import { Button } from "../../../components/Button/Button";
+import { useContext } from "react";
+import { MainPageContext } from "../../../context/mainpage.context";
+import { Skeleton } from "../../../components/Skeleton/Skeleton";
+import Image from "next/image";
+import {
+  dontHaveComics,
+  dontHaveInforamtion,
+} from "../../../interfaces/MainPage/messagesForNullContent.interfaces";
 
 export const Sidebar = ({ className, ...props }: SidebarProps): JSX.Element => {
+  const { choosenCharacter } = useContext(MainPageContext);
+
   return (
-    <Card className={cn(className, styles.sidebar)} {...props}>
-      <img className={styles.heroimage} src="/herocard.png" alt="hero" />
-      <Htag tag="h3" className={styles.herotitle}>
-        LOKI
-      </Htag>
-      <Button color="red" className={cn(styles.homepagebtn, styles.btn)}>
-        HOMEPAGE
-      </Button>
-      <Button color="grey" className={cn(styles.wikibtn, styles.btn)}>
-        WIKI
-      </Button>
-      <P className={styles.descr}>
-        In Norse mythology, Loki is a god or jötunn (or both). Loki is the son
-        of Fárbauti and Laufey, and the brother of Helblindi and Býleistr. By
-        the jötunn Angrboða, Loki is the father of Hel, the wolf Fenrir, and the
-        world serpent Jörmungandr. By Sigyn, Loki is the father of Nari and/or
-        Narfi and with the stallion Svaðilfari as the father, Loki gave birth—in
-        the form of a mare—to the eight-legged horse Sleipnir. In addition, Loki
-        is referred to as the father of Váli in the Prose Edda.
-      </P>
-      <Htag tag="h4" className={styles.comicslisttitle}>
-        Comics:
-      </Htag>
-      <ul className={styles.comicslist}>
-        <li> All-Winners Squad: Band of Heroes (2011) #3</li>
-      </ul>
+    <Card
+      className={cn(className, {
+        [styles.sidebar]: choosenCharacter,
+        [styles.skeleton]: !choosenCharacter,
+      })}
+      {...props}
+    >
+      {choosenCharacter ? (
+        <>
+          <div className={styles.heroimage}>
+            <Image
+              layout="responsive"
+              width={150}
+              height={150}
+              src={choosenCharacter.thumbnail}
+            ></Image>
+          </div>
+          <Htag tag="h2" className={styles.herotitle}>
+            {choosenCharacter.name}
+          </Htag>
+          <Button color="red" className={cn(styles.homepagebtn, styles.btn)}>
+            HOMEPAGE
+          </Button>
+          <Button color="grey" className={cn(styles.wikibtn, styles.btn)}>
+            WIKI
+          </Button>
+          <P className={styles.descr}>
+            {choosenCharacter.description.length < 1
+              ? dontHaveInforamtion
+              : choosenCharacter.description}
+          </P>
+          <Htag tag="h4" className={styles.comicslisttitle}>
+            Comics:
+          </Htag>
+          <ul className={styles.comicslist}>
+            {choosenCharacter?.comics?.items &&
+            choosenCharacter?.comics?.items.length < 1 ? (
+              <span className={styles.donthave}>{dontHaveComics}</span>
+            ) : (
+              choosenCharacter?.comics?.items.map((item, i) => {
+                if (i < 10) {
+                  return (
+                    <li className={styles.comicsitem} key={item.name}>
+                      {item.name}
+                    </li>
+                  );
+                }
+              })
+            )}
+          </ul>
+        </>
+      ) : (
+        <Skeleton></Skeleton>
+      )}
     </Card>
   );
 };

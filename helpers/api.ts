@@ -1,28 +1,22 @@
 import axios from "axios";
 import { IAPI } from "../interfaces/MainPage/api.interfaces";
 import { ICharacterInfo } from "../interfaces/MainPage/character.interfaces";
-import { randomCharErrorMessages } from "../interfaces/MainPage/errorMessages.interfaces";
+import { randomCharErrorMessages } from "../interfaces/MainPage/messagesForNullContent.interfaces";
 import { clearCharacterInfo } from "./clearCharacterInfo";
-import { getTimeStampAndHash } from "./getTimeStampAndHash";
+import { hash, timeStamp } from "./getTimeStampAndHash";
 
 export const API: IAPI = {
   domain: process.env.NEXT_PUBLIC_DOMAIN,
   getUrlCharacterForStaticProps: (id) => {
-    const hash = getTimeStampAndHash().md;
-    const timeStamp = getTimeStampAndHash().timeStamp;
-
     return (
       API.domain +
       `characters/${id}?&ts=${timeStamp}&apikey=${process.env.NEXT_PUBLIC_KEY}&hash=${hash}`
     );
   },
-  getUrlCharactersForHeroesList: () => {
-    const hash = getTimeStampAndHash().md;
-    const timeStamp = getTimeStampAndHash().timeStamp;
-
+  getUrlCharactersForHeroesList: (num) => {
     return (
       API.domain +
-      `characters?limit=9&offset=400&ts=${timeStamp}&apikey=${process.env.NEXT_PUBLIC_KEY}&hash=${hash}`
+      `characters?limit=9&offset=${num}&ts=${timeStamp}&apikey=${process.env.NEXT_PUBLIC_KEY}&hash=${hash}`
     );
   },
   changeHeroHandle: async (setHero, setLoading) => {
@@ -41,6 +35,22 @@ export const API: IAPI = {
         setLoading(false);
         setHero(randomCharErrorMessages);
       }
+    }
+  },
+  getUrlForSearchChar: (name) => {
+    return (
+      API.domain +
+      `/characters?name=${name}&apikey=${process.env.NEXT_PUBLIC_KEY}`
+    );
+  },
+  getCharacterFromSearch: async (hero, setHero) => {
+    if (setHero) {
+      const { data } = await axios.get<ICharacterInfo>(
+        API.getUrlForSearchChar(hero)
+      );
+
+      const x = clearCharacterInfo(data);
+      setHero(x);
     }
   },
 };

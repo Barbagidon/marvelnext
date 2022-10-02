@@ -1,7 +1,8 @@
 export const shortString = (
   string: string,
   firstIndex: number,
-  secondIndex: number
+  secondIndex: number,
+  circles = true
 ): string => {
-  return string.substring(firstIndex, secondIndex) + "...";
+  return string.substring(firstIndex, secondIndex) + (circles ? "..." : "");
 };

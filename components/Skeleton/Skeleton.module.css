@@ -1,0 +1,66 @@
+.skeleton {
+    margin-top: 30px;
+}
+
+
+.skeletonheader {
+    display: grid;
+    grid-template-columns: 40px auto;
+    column-gap: 10px;
+    align-items: center;
+}
+
+.skeletoncircle {
+    width: 40px;
+    height: 40px;
+    background-color: #C4C4C4;
+    border-radius: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.skeletonmini {
+    width: 100%;
+    height: 16px;
+    background-color: #C4C4C4;
+    position: relative;
+    overflow: hidden;
+}
+
+.skeletonblock {
+    height: 35px;
+    width: 100%;
+    background-color: #C4C4C4;
+    margin-top: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.pulse:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -150px;
+    top: 0;
+    height: 100%;
+    width: 150px;
+    background: linear-gradient(to right, transparent 0%, #E8E8E8 50%, transparent 100%);
+    animation: load 4s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+}
+
+.pulse {
+    position: relative;
+    overflow: hidden;
+}
+
+
+@keyframes load {
+    from {
+        left: -150px;
+    }
+
+    to {
+        left: 100%;
+    }
+}

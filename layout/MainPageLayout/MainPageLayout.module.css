@@ -10,6 +10,8 @@
         "randomchar randomchar"
         "cardlist sidebar";
 
+    grid-template-columns: auto 1fr;
+
 
     margin-top: 50px;
     width: 100%;
@@ -32,4 +34,21 @@
 .cardlist,
 .sidebar {
     margin-top: 50px;
+}
+
+.searchfrom {
+    margin-top: 30px;
+}
+
+@media (max-width: 1085px) {
+    .main {
+        grid-template-areas:
+            "randomchar randomchar"
+            "sidebar sidebar"
+            "cardlist cardlist";
+    }
+
+    .cardlist {
+        justify-self: center;
+    }
 }

@@ -12,7 +12,7 @@
         "img buttons";
     gap: 0 30px;
     padding: 40px;
-    min-height: 268px;
+    min-height: 270px;
 }
 
 .loading {
@@ -23,6 +23,7 @@
         "img descr"
         "img buttons";
     padding: 40px;
+    min-height: 270px;
 }
 
 
@@ -33,6 +34,7 @@
     line-height: 26px;
     color: var(--black);
     grid-area: heroname;
+    text-transform: uppercase;
 
 }
 
@@ -111,6 +113,7 @@
 
     .hero {
         grid-template-columns: 1fr;
+        min-height: 406px;
         justify-items: center;
         grid-template-areas:
             "heroname"
@@ -122,8 +125,8 @@
     .loading {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-areas:
-            "heroname"
+        min-height: 406px;
+        grid-template-areas: "heroname"
             "img"
             "descr"
             "buttons";
@@ -146,6 +149,7 @@
 
     .trycard {
         display: grid;
+        grid-template-rows: 100px;
     }
 
     .trybutton {
@@ -176,10 +180,13 @@
 
     .hero {
         grid-area: hero;
+
     }
+
 
     .trycard {
         grid-area: trycard;
+        grid-template-rows: 120px;
     }
 
     .descr {
@@ -198,7 +205,15 @@
 
 }
 
+
+
 @media (max-width: 375px) {
+
+    .hero,
+    .loading {
+        min-height: 512px;
+    }
+
     .buttons {
         flex-direction: column;
         align-items: center;
