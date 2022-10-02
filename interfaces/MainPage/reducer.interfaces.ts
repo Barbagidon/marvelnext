@@ -12,7 +12,10 @@ import {
 import { IClearCharacterInfo } from "./clearCharacterInfo.interfaces";
 import { IClearCharactersInfoForList } from "./clearCharactersInfoForList";
 import { IMainPageContext } from "./mainPageContext.interfaces";
-import { randomCharErrorMessages } from "./messagesForNullContent.interfaces";
+import {
+  notFound,
+  randomCharErrorMessages,
+} from "./messagesForNullContent.interfaces";
 
 export type IMainPageReducer =
   | {
@@ -32,7 +35,7 @@ export type IMainPageReducer =
     }
   | {
       type: typeof SET_CHARACTER_FROM_SEARCH;
-      payload: IClearCharacterInfo;
+      payload: IClearCharacterInfo | typeof notFound;
     }
   | {
       type: typeof SET_ARR_WITH_NUMBER_PAGES;
