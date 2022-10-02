@@ -1,14 +1,14 @@
 // eslint-disable-next-line no-undef
 module.exports = {
-  // async redirects() {
-  //   return [
-  //     {
-  //       source: "/",
-  //       destination: "/characters/1",
-  //       permanent: true,
-  //     },
-  //   ];
-  // },
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/characters/1",
+        permanent: true,
+      },
+    ];
+  },
 
   images: {
     domains: ["i.annihil.us"],
