@@ -49,9 +49,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({
   params,
 }: GetStaticPropsContext<ParsedUrlQuery>) => {
-  const urlForRandomChar = API.getUrlCharacterForStaticProps(1009664);
-
   try {
+    const urlForRandomChar = API.getUrlCharacterForStaticProps(1009664);
     const { data: dirtyInfoAboutCharacter } = await axios.get<ICharacterInfo>(
       urlForRandomChar
     );
@@ -68,6 +67,9 @@ export const getStaticProps: GetStaticProps = async ({
     const charactersInfoForList = clearCharactersInfoForList(charactersInfo);
 
     const { arrWithNumberPages } = pagesCount(amountOfPages);
+
+    console.log(characterInfo);
+    console.log(charactersInfoForList);
 
     return {
       props: {
