@@ -7,7 +7,10 @@ import { MainPageContext } from "../../../context/mainpage.context";
 
 import { API } from "../../../helpers/api";
 import Preloader from "../../MainPageLayout/RandomChar/preloader.svg";
-import { dontHaveInforamtion } from "../../../interfaces/MainPage/messagesForNullContent.interfaces";
+import {
+  dontHaveInforamtion,
+  notFound,
+} from "../../../interfaces/MainPage/messagesForNullContent.interfaces";
 import cn from "classnames";
 
 export const HeroInfo = ({
@@ -46,7 +49,7 @@ export const HeroInfo = ({
     >
       {loading ? (
         <Preloader className={styles.preloader}></Preloader>
-      ) : (
+      ) : characterFromSearch !== notFound ? (
         <>
           <div className={styles.heroImage}>
             <Image
@@ -65,7 +68,7 @@ export const HeroInfo = ({
               : dontHaveInforamtion}
           </div>
         </>
-      )}
+      ) : null}
     </div>
   );
 };
