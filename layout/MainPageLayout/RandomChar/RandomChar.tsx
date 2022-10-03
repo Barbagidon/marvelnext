@@ -6,7 +6,7 @@ import { P } from "../../../components/P/P";
 import { Button } from "../../../components/Button/Button";
 import Image from "next/image";
 import cn from "classnames";
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { MainPageContext } from "../../../context/mainpage.context";
 import { shortString } from "../../../helpers/shortString";
 import { API } from "../../../helpers/api";
@@ -20,8 +20,10 @@ export const RandomChar = ({
   const { characterInfo, loading, setHero, setLoading } =
     useContext(MainPageContext);
 
+ 
+
   return (
-    <div className={cn(styles.wrapper, className)} {...props}>
+    <div  className={cn(styles.wrapper, className)} {...props}>
       <Card className={loading ? styles.loading : styles.hero}>
         {loading ? (
           <Preloader></Preloader>

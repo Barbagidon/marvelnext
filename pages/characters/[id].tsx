@@ -68,9 +68,6 @@ export const getStaticProps: GetStaticProps = async ({
 
     const { arrWithNumberPages } = pagesCount(amountOfPages);
 
-    console.log(characterInfo);
-    console.log(charactersInfoForList);
-
     return {
       props: {
         characterInfo,

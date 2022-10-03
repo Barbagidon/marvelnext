@@ -14,15 +14,22 @@ export const CardWithHero = ({
 }: CardWithHeroProps): JSX.Element => {
   const { choosenCharacter } = useContext(MainPageContext);
 
+  function scrollTo(): void {
+    const el = document.getElementById("sidebar");
+    el?.scrollIntoView({ block: "start", inline: "start", behavior: "smooth" });
+  }
+
   return (
     <Card
       className={cn(styles.cardwithhero, {
         [styles.choosencharacter]: choosenCharacter?.name === name,
       })}
       background="grey"
+      onClick={(): void => scrollTo()}
       {...props}
     >
       <Image width={200} height={190} src={thumbnail} alt={name}></Image>
+
       <div className={styles.cardbottom}>
         <Htag tag="h3" className={styles.heroname}>
           {name}
