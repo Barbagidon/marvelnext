@@ -66,7 +66,7 @@ export const RandomChar = ({
         </Button>
 
         <div className={styles.hummerImage}>
-          <Image width={200} height={190} src="hummer.png"></Image>
+          <Image width={200} height={190} src="/hummer.png"></Image>
         </div>
       </Card>
     </div>
