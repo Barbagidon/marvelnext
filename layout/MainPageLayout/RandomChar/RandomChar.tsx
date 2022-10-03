@@ -38,13 +38,14 @@ export const RandomChar = ({
           characterInfo
         ) : (
           <>
-            <Image
-              width={180}
-              height={180}
-              priority={true}
-              className={styles.img}
-              src={characterInfo.thumbnail}
-            />
+            <div className={styles.img}>
+              <Image
+                width={180}
+                height={180}
+                priority={true}
+                src={characterInfo.thumbnail}
+              />
+            </div>
 
             <Htag className={styles.heroname} tag="h2">
               {characterInfo.name}
