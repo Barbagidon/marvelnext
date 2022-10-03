@@ -5,7 +5,7 @@ import { Htag } from "../../../components/Htag/Htag";
 import { P } from "../../../components/P/P";
 import cn from "classnames";
 import { Button } from "../../../components/Button/Button";
-import { useContext, useEffect, useRef } from "react";
+import { useContext } from "react";
 import { MainPageContext } from "../../../context/mainpage.context";
 import { Skeleton } from "../../../components/Skeleton/Skeleton";
 import Image from "next/image";

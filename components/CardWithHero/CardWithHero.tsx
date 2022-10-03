@@ -25,7 +25,11 @@ export const CardWithHero = ({
         [styles.choosencharacter]: choosenCharacter?.name === name,
       })}
       background="grey"
-      onClick={(): void => scrollTo()}
+      onClick={
+        window && window.screen.width < 1085
+          ? (): void => scrollTo()
+          : undefined
+      }
       {...props}
     >
       <Image width={200} height={190} src={thumbnail} alt={name}></Image>
