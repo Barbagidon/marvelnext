@@ -6,7 +6,7 @@ import { P } from "../../../components/P/P";
 import { Button } from "../../../components/Button/Button";
 import Image from "next/image";
 import cn from "classnames";
-import { useContext, useEffect, useRef } from "react";
+import { useContext } from "react";
 import { MainPageContext } from "../../../context/mainpage.context";
 import { shortString } from "../../../helpers/shortString";
 import { API } from "../../../helpers/api";
@@ -23,8 +23,6 @@ export const RandomChar = ({
   const { characterInfo, loading, setHero, setLoading, characterFromSearch } =
     useContext(MainPageContext);
 
-  console.log(characterFromSearch);
-
   return (
     <div className={cn(styles.wrapper, className)} {...props}>
       <Card
@@ -40,7 +38,13 @@ export const RandomChar = ({
           characterInfo
         ) : (
           <>
-            <img className={styles.img} src={characterInfo.thumbnail} />
+            <Image
+              width={180}
+              height={180}
+              priority={true}
+              className={styles.img}
+              src={characterInfo.thumbnail}
+            />
 
             <Htag className={styles.heroname} tag="h2">
               {characterInfo.name}

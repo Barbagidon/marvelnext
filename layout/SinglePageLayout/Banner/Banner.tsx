@@ -7,7 +7,13 @@ export const Banner = ({ ...props }: HeaderProps): JSX.Element => {
   return (
     <div {...props} className={styles.banner}>
       <div className={styles.avengers}>
-        <Image width={150} height={100} src="/Avengers.png" alt="avengers" />
+        <Image
+          priority={true}
+          width={150}
+          height={100}
+          src="/Avengers.png"
+          alt="avengers"
+        />
       </div>
 
       <Htag tag="h3" className={styles.bannertext}>
@@ -17,6 +23,7 @@ export const Banner = ({ ...props }: HeaderProps): JSX.Element => {
       <Image
         width={130}
         height={100}
+        priority={true}
         src="/AvengersLogo.png"
         alt="avehngersLogo"
       />
