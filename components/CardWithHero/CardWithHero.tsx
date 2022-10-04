@@ -32,7 +32,13 @@ export const CardWithHero = ({
       }
       {...props}
     >
-      <Image width={200} height={190} src={thumbnail} alt={name}></Image>
+      <Image
+        priority={true}
+        width={200}
+        height={190}
+        src={thumbnail}
+        alt={name}
+      ></Image>
 
       <div className={styles.cardbottom}>
         <Htag tag="h3" className={styles.heroname}>
