@@ -3,4 +3,6 @@ export interface IClearCharacterInfo {
   thumbnail: string;
   description: string;
   id: number;
+  homepage: string;
+  wiki: string;
 }

@@ -13,6 +13,7 @@ import {
   dontHaveComics,
   dontHaveInforamtion,
 } from "../../../interfaces/MainPage/messagesForNullContent.interfaces";
+import Link from "next/link";
 
 export const Sidebar = ({ className, ...props }: SidebarProps): JSX.Element => {
   const { choosenCharacter } = useContext(MainPageContext);
@@ -39,12 +40,25 @@ export const Sidebar = ({ className, ...props }: SidebarProps): JSX.Element => {
           <Htag tag="h2" className={styles.herotitle}>
             {choosenCharacter.name}
           </Htag>
-          <Button color="red" className={cn(styles.homepagebtn, styles.btn)}>
-            HOMEPAGE
-          </Button>
-          <Button color="grey" className={cn(styles.wikibtn, styles.btn)}>
-            WIKI
-          </Button>
+
+          <Link href={choosenCharacter.homepage}>
+            <a  className={styles.buttonlink} target={"_blank"}>
+              <Button
+                color="red"
+                className={cn(styles.homepagebtn, styles.btn)}
+              >
+                HOMEPAGE
+              </Button>
+            </a>
+          </Link>
+          <Link href={choosenCharacter.wiki}>
+            <a className={styles.buttonlink} target={"_blank"}>
+              <Button color="grey" className={cn(styles.wikibtn, styles.btn)}>
+                WIKI
+              </Button>
+            </a>
+          </Link>
+
           <P className={styles.descr}>
             {choosenCharacter.description.length < 1
               ? dontHaveInforamtion

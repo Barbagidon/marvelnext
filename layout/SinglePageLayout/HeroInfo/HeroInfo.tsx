@@ -30,7 +30,8 @@ export const HeroInfo = ({
       API.getCharacterFromSearch(
         window.location.pathname.substring(12).replace("%20", " "),
         setCharacterFromSearch,
-        setLoading
+        setLoading,
+        undefined
       );
     }
 
@@ -39,15 +40,16 @@ export const HeroInfo = ({
     }
   }, []);
 
+
   return (
     <div
       {...props}
       className={cn(className, {
-        [styles.wrapper]: !loading,
-        [styles.loadingwrapper]: loading,
+        [styles.wrapper]: characterFromSearch || !loading,
+        [styles.loadingwrapper]: !characterFromSearch || loading,
       })}
     >
-      {loading ? (
+      {loading || !characterFromSearch ? (
         <Preloader className={styles.preloader}></Preloader>
       ) : characterFromSearch !== notFound ? (
         <>
@@ -68,7 +70,9 @@ export const HeroInfo = ({
               : dontHaveInforamtion}
           </div>
         </>
-      ) : null}
+      ) : (
+        <div>{dontHaveInforamtion}</div>
+      )}
     </div>
   );
 };

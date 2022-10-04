@@ -1,4 +1,5 @@
 import { IMainPageContext } from "./mainPageContext.interfaces";
+import { MouseEvent } from "react";
 
 export interface IAPI {
   domain: typeof process.env.NEXT_PUBLIC_DOMAIN;
@@ -12,6 +13,7 @@ export interface IAPI {
   getCharacterFromSearch: (
     hero: string | undefined,
     setHero: IMainPageContext["setCharacterFromSearch"],
-    setLoading: IMainPageContext["setLoading"]
+    setLoading: IMainPageContext["setLoading"],
+    e?: MouseEvent
   ) => Promise<void>;
 }

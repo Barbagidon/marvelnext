@@ -11,28 +11,21 @@ import { MainPageContext } from "../../../context/mainpage.context";
 import { shortString } from "../../../helpers/shortString";
 import { API } from "../../../helpers/api";
 import Preloader from "./preloader.svg";
-import {
-  dontHaveInforamtion,
-  notFound,
-} from "../../../interfaces/MainPage/messagesForNullContent.interfaces";
+import { dontHaveInforamtion } from "../../../interfaces/MainPage/messagesForNullContent.interfaces";
+import Link from "next/link";
 
 export const RandomChar = ({
   className,
   ...props
 }: RandomCharProps): JSX.Element => {
-  const { characterInfo, loading, setHero, setLoading, characterFromSearch } =
+  const { characterInfo, loading, setHero, setLoading } =
     useContext(MainPageContext);
 
+  // && characterFromSearch && characterFromSearch !== notFound
   return (
     <div className={cn(styles.wrapper, className)} {...props}>
-      <Card
-        className={
-          loading && characterFromSearch && characterFromSearch !== notFound
-            ? styles.loading
-            : styles.hero
-        }
-      >
-        {loading && characterFromSearch && characterFromSearch !== notFound ? (
+      <Card className={loading ? styles.loading : styles.hero}>
+        {loading ? (
           <Preloader></Preloader>
         ) : typeof characterInfo === "string" ? (
           characterInfo
@@ -56,10 +49,19 @@ export const RandomChar = ({
                 : dontHaveInforamtion}
             </P>
             <div className={styles.buttons}>
-              <Button color="red">HOMEPAGE</Button>
-              <Button className={cn(styles.wikibutton)} color="grey">
-                WIKI
-              </Button>
+              <Link href={characterInfo.homepage}>
+                <a className={styles.buttonlink} target={"_blank"}>
+                  <Button color="red">HOMEPAGE</Button>
+                </a>
+              </Link>
+
+              <Link href={characterInfo.wiki}>
+                <a className={styles.buttonlink} target={"_blank"}>
+                  <Button className={cn(styles.wikibutton)} color="grey">
+                    WIKI
+                  </Button>
+                </a>
+              </Link>
             </div>
           </>
         )}

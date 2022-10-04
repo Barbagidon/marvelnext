@@ -6,4 +6,6 @@ export interface IClearCharactersInfoForList {
   id: number;
   comics?: Comics;
   thumbnail: string;
+  homepage: string;
+  wiki: string;
 }

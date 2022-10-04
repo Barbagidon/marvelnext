@@ -43,10 +43,16 @@
 
 }
 
+.buttonlink {
+    width: 100%;
+    max-width: 101px;
+}
+
 .buttons {
     grid-area: buttons;
     align-self: end;
 }
+
 
 
 .wikibutton {

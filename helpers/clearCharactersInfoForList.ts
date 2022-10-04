@@ -13,6 +13,8 @@ export const clearCharactersInfoForList = (
       id: item.id,
       comics: item.comics,
       thumbnail: item.thumbnail.path + "." + item.thumbnail.extension,
+      homepage: item.urls[0].url,
+      wiki: item.urls[1].url,
     };
   });
 };

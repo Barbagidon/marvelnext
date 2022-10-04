@@ -57,7 +57,7 @@ export const getStaticProps: GetStaticProps = async ({
 
     const characterInfo = clearCharacterInfo(dirtyInfoAboutCharacter);
 
-    const num = params?.id ? 400 + Number(params.id) * 9 : 400;
+    const num = params?.id ? 600 + Number(params.id) * 9 : 600;
     const charactersUrl = API.getUrlCharactersForHeroesList(num);
 
     const { data: charactersInfo } = await axios.get<ICharactersInfo>(

@@ -11,10 +11,9 @@ export const clearCharacterInfo = (
       data.data.results[0].thumbnail.path +
       "." +
       data.data.results[0].thumbnail.extension,
-    description:
-      data.data.results[0].description ??
-      dontHaveInforamtion,
-
+    description: data.data.results[0].description ?? dontHaveInforamtion,
     id: data.data.results[0].id,
+    homepage: data.data.results[0].urls[0].url,
+    wiki: data.data.results[0].urls[1].url,
   };
 };

@@ -47,10 +47,17 @@
 
 .wikibtn {
     grid-area: wikibtn;
+    margin-top: 7px;
 }
 
 .btn {
     align-self: flex-end;
+}
+
+.buttonlink {
+    width: 100%;
+    max-width: 101px;
+    display: contents;
 }
 
 .descr {

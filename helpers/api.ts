@@ -46,13 +46,14 @@ export const API: IAPI = {
       `/characters?name=${name}&apikey=${process.env.NEXT_PUBLIC_KEY}`
     );
   },
-  getCharacterFromSearch: async (hero, setHero, setLoading) => {
+  getCharacterFromSearch: async (hero, setHero, setLoading, e) => {
     if (setHero && setLoading) {
       try {
-        setLoading(true);
+        setLoading(!e ? true : false);
         const { data } = await axios.get<ICharacterInfo>(
           API.getUrlForSearchChar(hero)
         );
+
         setLoading(false);
         const clearInfo = clearCharacterInfo(data);
         setHero(clearInfo);

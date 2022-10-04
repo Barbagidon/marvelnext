@@ -15,6 +15,11 @@
     margin-top: 50px;
 }
 
+.wrapper.loadingwrapper {
+    display: flex;
+    justify-content: center;
+}
+
 .heroImage {
     grid-area: heroImage;
 
