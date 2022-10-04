@@ -34,6 +34,7 @@ export const Sidebar = ({ className, ...props }: SidebarProps): JSX.Element => {
               layout="responsive"
               width={150}
               height={150}
+              priority={true}
               src={choosenCharacter.thumbnail}
             ></Image>
           </div>
@@ -42,7 +43,7 @@ export const Sidebar = ({ className, ...props }: SidebarProps): JSX.Element => {
           </Htag>
 
           <Link href={choosenCharacter.homepage}>
-            <a  className={styles.buttonlink} target={"_blank"}>
+            <a className={styles.buttonlink} target={"_blank"}>
               <Button
                 color="red"
                 className={cn(styles.homepagebtn, styles.btn)}
